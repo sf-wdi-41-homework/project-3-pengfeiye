@@ -26,6 +26,7 @@ module Project3Txt
     # -- all .rb files in that directory are automatically loaded.
 
     # Don't generate system test files.
+    config.assets.initialize_on_precompile = false
     config.generators.system_tests = nil
   end
 end
