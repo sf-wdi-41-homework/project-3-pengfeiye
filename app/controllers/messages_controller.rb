@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     message = @chatbox.messages.new(message_params)
     message.user = current_user
     message.save
-    redirect_to @chatbox
+    MessageRelayJob.perform_now(message)
   end
 
   private

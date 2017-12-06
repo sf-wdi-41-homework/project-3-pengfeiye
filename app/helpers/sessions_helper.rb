@@ -2,11 +2,13 @@ module SessionsHelper
   def login(user)
     session[:user_id] = user.id
     @current_user = user
+    cookies.signed[:user_id] = current_user.id
   end
 
   def logout
     session[:user_id] = "none"
     @current_user = false
+    cookies.signed[:user_id] = nil
    end
 
   def current_user
