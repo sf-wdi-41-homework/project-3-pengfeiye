@@ -1,3 +1,4 @@
+
 development: &development
   :url: redis://localhost:6379
   :host: localhost
@@ -6,9 +7,9 @@ development: &development
   :inline: true
 test: *development
 production: &production
-  :url:     redis://h:p3abbfdef86e68ee78532a032b9b3c0aa2a01bb193bef16881f348917bc0c6899@ec2-34-227-234-245.compute-1.amazonaws.com:62499
-  :host: ec2-34-227-234-245.compute-1.amazonaws.com
-  :port: 62499
-  :password: p3abbfdef86e68ee78532a032b9b3c0aa2a01bb193bef16881f348917bc0c6899
+  :url:     redis://redistogo:192csd9c30ca49585ce9d85daf0fer90@tarpon.redistogo.com:49382
+  :host: tarpon.redistogo.com
+  :port: 49382
+  :password: 349f93483fv9erfv849dfvdfbds9
   :inline: true
   :timeout: 1

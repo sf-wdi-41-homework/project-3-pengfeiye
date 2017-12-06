@@ -1,5 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.middleware.use ChatActionCable
+  config.web_socket_server_url = "https://ancient-hamlet-73557.herokuapp.com"
+
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -91,6 +94,4 @@ Rails.application.configure do
 
   /config/environments/production.rb
 
-  config.middleware.use ChatActionCable
-  config.web_socket_server_url = "https://ancient-hamlet-73557.herokuapp.com/"
 end
