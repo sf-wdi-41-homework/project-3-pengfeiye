@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2" id="sidebar-wrapper">
+      <ul class="nav navbar-nav side-nav">
+        <li>
+          <%=link_to new_chatbox_path do%>
+          <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+          <%end%>
+        </li>
+        <%current_user.chatboxes.sort_by { |chatbox| chatbox[:name] } .each do |chatbox|%>
+          <li class="col-sm-12">
+            <%=link_to chatbox.name, chatbox_path(chatbox.id), class:"nav-link"%>
+          </li>
+        <%end%>
+      </ul>
+    </div>
+    <div class="col-sm-10" id="messages">
+      <%= yield %>
+    </div>
+  </div>
+</div>

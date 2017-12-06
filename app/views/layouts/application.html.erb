@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My TXT-Box</title>
+    <%= csrf_meta_tags %>
+    <!-- <link rel="icon" href=""> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- HAVE TO INCLUDE VALIDATOR TO USE VALIDATOR!!!! THIS THING TOOK ME AN HOUR TO SOLVE -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+    <script src="https://use.fontawesome.com/6f8b4ecbb1.js"></script>
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono|Ubuntu" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js" integrity="sha384-3ziFidFTgxJXHMDttyPJKDuTlmxJlwbSkojudK/CkRqKDOmeSbN6KLrGdrBQnT2n" crossorigin="anonymous"></script>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="16x16">
+  </head>
+
+  <body>
+    <!-- navbar  -->
+    <%= render "/layouts/nav" %>
+
+    <!-- Error and Succes MSG -->
+    <% flash.each do |name, msg| %>
+      <% if name == "success" %>
+        <p class="alert alert-success">
+      <% else %>
+        <p class="alert alert-danger">
+      <% end %>
+        <strong> <%= name.capitalize %>: <%= msg %> </strong>
+      </p>
+    <% end %>
+
+    <!-- Redner Content  -->
+    <%if currentposition%>
+      <%= render '/layouts/chatbox'%>
+    <%else%>
+      <%= yield %>
+    <%end%>
+
+
+    <!-- TODO add a footer! -->
+  </body>
+</html>

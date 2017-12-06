@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <h3>
+      <%=@chatbox.name%>
+      <%=link_to edit_chatbox_path(@chatbox.id) do%>
+        <span class="glyphicon glyphicon-pencil"></span>
+      <%end%>
+    </h3>
+  <div class="msg">
+    <% @chatbox.messages.order(created_at: :desc).limit(200).reverse.each do |msg| %>
+      <%if msg.user.id == current_user.id%>
+      <div class="text-right">
+        <%=msg.content%> : You
+      </div>
+      <%else%>
+      <div>
+        <%=msg.user.username%> : <%=msg.content%>
+      </div>
+      <%end%>
+    <%end%>
+  </div>
+
+  <%= form_with scope: :message, url: chatbox_messages_path(@chatbox.id) do |form| %>
+    <div class="form-group">
+      <%= form.text_field(:content, class: 'form-control', autofocus: true, id:"msgInput") %>
+    </div>
+  <%end%>
+
+</div>
