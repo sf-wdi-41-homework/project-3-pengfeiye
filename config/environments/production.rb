@@ -88,4 +88,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  /config/environments/production.rb
+
+  config.middleware.use ChatActionCable
+  config.web_socket_server_url = "https://ancient-hamlet-73557.herokuapp.com/"
 end
