@@ -24,9 +24,9 @@ module Project3Txt
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.assets.initialize_on_precompile = false
 
     # Don't generate system test files.
-    config.assets.initialize_on_precompile = false
     config.generators.system_tests = nil
   end
 end
