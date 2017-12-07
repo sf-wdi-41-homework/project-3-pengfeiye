@@ -9,7 +9,7 @@
         </li>
         <%current_user.chatboxes.sort_by { |chatbox| chatbox[:name] } .each do |chatbox|%>
           <li class="col-sm-12">
-            <%=link_to chatbox.name, chatbox_path(chatbox.id), class:"nav-link", data: {chatbox_id: chatbox.id}%>
+            <%=link_to chatbox.name, chatbox_path(chatbox.id), class:"nav-link", data: {chat_id: chatbox.id}%>
           </li>
         <%end%>
       </ul>

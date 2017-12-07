@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav class="container-fluid navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="container-fluid navbar navbar-default navbar-fixed-top" role="navigation">
 
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -13,10 +13,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class=" collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li> <a class="navbar-brand" href="/"><img src="#" width="30" height="30" alt=""></a></li>
-            <li><%=link_to "About", root_path, class:"nav-link"%></li>
+            <li> <a class="navbar-brand" href="/"><img src="/logo.png" width="30" height="30" alt=""></a></li>
+            <li class="list-inline-item"><%=link_to "About", root_path, class:"nav-link"%></li>
             <%if current_user%>
-            <li>
+            <li class="list-inline-item">
               <%= link_to chatboxes_path, class:"nav-link" do%>
                 <%=current_user.username.capitalize%>'s Chatbox
               <%end%>
@@ -25,14 +25,14 @@
           </ul>
 
 
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right list-inline">
             <% if current_user %>
 
-              <li ><%= link_to "Log Out", logout_path, method: :delete,class:"nav-link" %></li>
+              <li class="list-inline-item"><%= link_to "Log Out", logout_path, method: :delete,class:"nav-link" %></li>
 
             <% else %>
-              <li ><%= link_to "Create Account", signup_path, class:"nav-link"%></li>
-              <li ><%= link_to "Log In", login_path, class:"nav-link"%></li>
+              <li class="list-inline-item"><%= link_to "Create Account", signup_path, class:"nav-link"%></li>
+              <li class="list-inline-item"><%= link_to "Log In", login_path, class:"nav-link"%></li>
             <% end %>
           </ul>
         </div>

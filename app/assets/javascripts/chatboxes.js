@@ -6,5 +6,15 @@ $(document).on('turbolinks:load',function(){
       $('#msgInput').val('')
       }
     });
+
+
+
+    $(".signup_link").click(function(e) {
+      e.preventDefault()
+    	$(".signin_form").hide();
+    	$(".signup_form").show();
+    });
+
+
   }
 )

@@ -1,3 +1,13 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+header .masthead{
+  height: 100vh;
+  min-height: 775px;
+  padding-top: 0;
+  padding-bottom: 0;
+  position: relative;
+  width: 100%;
+  background: url(../img/bg-pattern.png),linear-gradient(to left,#7b4397,#dc2430);
+}

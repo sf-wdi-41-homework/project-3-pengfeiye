@@ -10,5 +10,5 @@ App.chatbox = App.cable.subscriptions.create "ChatboxChannel",
     if active_chat.length > 0
       $("[chatbox-id='#{data.chatbox_id}']").append(data.message)
     else
-      $("[data-chatbox-id='#{data.chatbox_id}']").css("font-weight", "bold")
+      $("[data-chat-id='#{data.chatbox_id}']").css("font-weight", "bold")
     # Called when there's incoming data on the websocket for this channel

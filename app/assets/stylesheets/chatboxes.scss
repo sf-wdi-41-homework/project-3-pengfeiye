@@ -3,10 +3,46 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-    padding-top: 7vh;
+    padding-top: 5vh;
 }
 
 .msg {
   overflow-y: auto;
   height: 80vh;
+}
+
+.alert{
+  margin-bottom: 0;
+}
+
+.h-100 {
+  padding-top: 7vh;
+}
+
+#backdrop{
+  background: url('/homeback.jpg');
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+
+}
+#features {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  height: 100%;
+  width: 100%;
+}
+
+.fa-heart{
+  color:red
+}
+
+.text-muted{
+  color: lightgrey;
+}
+
+ul.nav li.list-inline-item:hover{
+  font-size: 15px;
+
 }

@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     message = @chatbox.messages.new(message_params)
     message.user = current_user
     message.save
-    MessageRelayJob.perform_now(message)
+    MessageRelayJob.perform_later(message)
   end
 
   private

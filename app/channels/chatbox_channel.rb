@@ -10,4 +10,10 @@ class ChatboxChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
     stop_all_streams
   end
+
+  def send_message(data)
+    @chatbox = Chatbox.find(data['chatbox_id'])
+    message = @chatbox.messages.create(content: data['content'], user: current_user)
+    MessageRelayJob.perform_later(message)
+  end
 end
