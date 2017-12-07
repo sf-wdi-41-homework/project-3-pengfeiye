@@ -3,26 +3,43 @@
 <section class="features" id="features">
   <div class="container">
     <div class="section-heading text-center">
+      <%if current_user%>
+      <h2><%=current_user.username.capitalize%> our community!</h2>
+      <p class="text-muted">Where Unlimited Fun Happens!</p>
+      <hr>
+      <%else%>
       <h2>Join our community!</h2>
       <p class="text-muted">Unlimited Possibility, Unlimited Fun</p>
       <hr>
+      <%end%>
     </div>
     <div class="row">
-      <div class="col-lg-8 my-auto">
+      <div class="col-lg-4 my-auto">
         <div class="device-container">
           <div class="device-mockup iphone6_plus portrait white">
             <div class="device">
               <div class="screen">
                 <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                <h2 class='text-center'>We  <i class="fa fa-heart"></i></h2>
+                <h2 class='text-center'>
+                  <%if current_user%>
+                  I
+                  <%else%>
+                  We
+                  <%end%>
+                    <i class="fa fa-heart"></i></h2>
                   <h2 class='text-right'>To Chat!</h2>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 my-auto">
+      <div class="col-lg-4 col-lg-offset-2 my-auto">
         <div class="container-fluid">
+          <%if current_user%>
+          <h1 class="text-center" id="startChatBtn">
+          <a href='/chatboxes'>Start TXTChat Now!<a>
+          </h1>
+          <%else%>
           <div class="login" id="card">
             	<div class="front signin_form">
                 <p>Login Your Account</p>
@@ -89,6 +106,7 @@
                   </form>
                 </div>
             </div>
+            <%end%>
         </div>
       </div>
     </div>

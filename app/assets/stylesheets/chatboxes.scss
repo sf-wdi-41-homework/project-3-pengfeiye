@@ -44,5 +44,12 @@ body {
 
 ul.nav li.list-inline-item:hover{
   font-size: 15px;
+}
 
+#startChatBtn {
+  border-radius: 30px;
+  border: solid;
+}
+#startChatBtn:hover{
+  background-color: rgba(255, 255, 255, .2);
 }
