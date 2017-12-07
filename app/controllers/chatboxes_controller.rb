@@ -14,7 +14,8 @@ class ChatboxesController < ApplicationController
   def create
     @user = User.find_by_username(params[:chatboxes][:username])
     @chatbox = Chatbox.new(chatbox_params)
-    if @chatbox.save && current_user.chatboxes << @chatbox && @user == nil
+
+    if @user == nil && @chatbox.save && current_user.chatboxes << @chatbox
       flash[:success] = "#{@chatbox.name} chatbox was just created"
       redirect_to chatbox_path(@chatbox.id)
     elsif @chatbox.save && current_user.chatboxes << @chatbox && @user.chatboxes << @chatbox
