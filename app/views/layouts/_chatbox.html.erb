@@ -1,21 +1,58 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-2" id="sidebar-wrapper">
-      <ul class="nav navbar-nav side-nav">
-        <li>
-          <%=link_to new_chatbox_path do%>
-          <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
-          <%end%>
-        </li>
-        <%current_user.chatboxes.sort_by { |chatbox| chatbox[:name] } .each do |chatbox|%>
-          <li class="col-sm-12">
-            <%=link_to chatbox.name, chatbox_path(chatbox.id), class:"nav-link", data: {chat_id: chatbox.id}%>
-          </li>
-        <%end%>
-      </ul>
+
+<div class="container-fluid wrapper">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <!-- sidebar -->
+        <div class="column col-sm-2 col-xs-3 sidebar-offcanvas" id="sidebar">
+            <ul class="nav" id="menu">
+                <li>
+                  <%=link_to new_chatbox_path do%>
+                  <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+                  <%end%>
+                </li>
+                <li><%=link_to current_user.chatboxes.find(25).name, chatbox_path(25), class:"nav-link", data: {chat_id: 25}%></li>
+                <li>
+                    <a href="#" data-target="#item1" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Group TXTChat <span class="caret"></span></span></a>
+                    <ul class="nav nav-stacked collapse left-submenu" id="item1">
+                      <%current_user.chatboxes.sort_by { |chatbox| chatbox[:name] } .each do |chatbox|%>
+                        <%if chatbox.users.length > 2 && chatbox.id != 25%>
+                        <li >
+                          <%=link_to chatbox.name, chatbox_path(chatbox.id), class:"nav-link", data: {chat_id: chatbox.id}%>
+                        </li>
+                        <%end%>
+                      <%end%>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" data-target="#item2" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Private TXTChat<span class="caret"></span></span></a>
+                    <ul class="nav nav-stacked collapse" id="item2">
+                      <%current_user.chatboxes.sort_by { |chatbox| chatbox[:name] } .each do |chatbox|%>
+                        <%if chatbox.users.length === 2%>
+                        <li >
+                          <%=link_to chatbox.name, chatbox_path(chatbox.id), class:"nav-link", data: {chat_id: chatbox.id}%>
+                        </li>
+                        <%end%>
+                      <%end%>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" data-target="#item3" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Inactive TXTChat<span class="caret"></span></span></a>
+                    <ul class="nav nav-stacked collapse" id="item3">
+                      <%current_user.chatboxes.sort_by { |chatbox| chatbox[:name] } .each do |chatbox|%>
+                        <%if chatbox.users.length < 2%>
+                        <li >
+                          <%=link_to chatbox.name, chatbox_path(chatbox.id), class:"nav-link", data: {chat_id: chatbox.id}%>
+                        </li>
+                        <%end%>
+                      <%end%>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /sidebar -->
+
+        <!-- main right col -->
+        <div class="column col-sm-10 col-xs-9" id="messages">
+          <%= yield %>
+        </div>
+        <!-- /main -->
     </div>
-    <div class="col-sm-10" id="messages">
-      <%= yield %>
-    </div>
-  </div>
-</div>

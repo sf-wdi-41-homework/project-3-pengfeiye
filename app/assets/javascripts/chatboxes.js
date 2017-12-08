@@ -10,8 +10,13 @@ $(document).on('turbolinks:load',function(){
       }
     });
 
+  $('.createChat').on('submit', function(e){
+    console.log("submit")
+    App.chatbox.connected
+  })
+
     function updateScroll(){
-      $(".msg").animate({ scrollTop: $(this).height() }, "slow");
+      $(".msg").animate({ scrollTop: $(this).height() }, "fast");
       return false;
     }
 
@@ -20,6 +25,7 @@ $(document).on('turbolinks:load',function(){
     	$(".signin_form").hide();
     	$(".signup_form").show();
     });
+
 
 
   }

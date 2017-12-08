@@ -52,7 +52,16 @@ class ChatboxesController < ApplicationController
   end
 
   def destroy
-    @chatbox.destroy
+    if @chatbox.users.length <= 1
+      @chatbox.destroy
+      flash[:success] ="#{@chatbox.name} has been shut down!"
+      redirect_to chatboxes_path
+    else
+      @chatbox.users.delete(current_user.id)
+      flash[:success] ="You have left #{@chatbox.name} TXTChat :("
+      redirect_to chatboxes_path
+    end
+
   end
 
   private

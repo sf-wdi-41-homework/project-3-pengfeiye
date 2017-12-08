@@ -1,21 +1,36 @@
 <div class="container-fluid">
+  <div class="row" id="chatboxHead">
     <h3>
-      <%=@chatbox.name%>
-      <%=link_to edit_chatbox_path(@chatbox.id) do%>
+      <div class="col-sm-11">
+        <%=@chatbox.name%>
+        <%=link_to edit_chatbox_path(@chatbox.id) do%>
         <span class="glyphicon glyphicon-pencil"></span>
+        <%end%>
+      </div>
+      <% if @chatbox.id != 25 %>
+      <div class="col-sm-1">
+        <%=link_to chatbox_path(@chatbox.id), method: :delete do%>
+        <span>
+          <i class="fa fa-window-close" aria-hidden="true"></i>
+        </span>
+        <%end%>
+      </div>
       <%end%>
     </h3>
-
+  </div>
+  <br>
+  <div class="row">
     <div class="msg" chatbox-id="<%=@chatbox.id%>">
       <% @chatbox.messages.order(created_at: :desc).limit(200).reverse.each do |message| %>
-            <%=render message%>
+      <%=render message%>
       <%end%>
     </div>
 
-  <%= form_with scope: :message, url: chatbox_messages_path(@chatbox.id), id:"msgForm", remote: true do |form| %>
+    <%= form_with scope: :message, url: chatbox_messages_path(@chatbox.id), id:"msgForm", remote: true do |form| %>
     <div class="form-group">
       <%= form.text_field(:content, class: 'form-control', autofocus: true, id:"msgInput") %>
     </div>
-  <%end%>
+    <%end%>
+  </div>
 
 </div>

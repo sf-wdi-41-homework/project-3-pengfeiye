@@ -2,7 +2,7 @@
 
 <div style="margin-top: 20px;" class="row">
 <div class="col-xs-4 col-xs-offset-4">
-<%= form_with scope: :chatboxes, model: @chatbox, class: "form-horizontal" do |form| %>
+<%= form_with scope: :chatboxes, model: @chatbox, class: "form-horizontal createChat", remote: true do |form| %>
 <div class="form-group">
 		<%= form.label :name, "Chatbox Name:" %>
 		<%= form.text_field(:name, class: 'form-control') %>

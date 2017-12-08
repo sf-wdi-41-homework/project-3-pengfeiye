@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       if @user.save
         login(@user)
+        @user.chatboxes << Chatbox.find_by_name("Community")
         flash[:success] = "#{@user.username.capitalize} welcome to TXTChat Community"
         redirect_to root_path
       else
