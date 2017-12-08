@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load',function(){
+
   setTimeout(function(){
            App.cable.disconnect();
        }, 250);
@@ -17,10 +18,6 @@ $(document).on('turbolinks:load',function(){
       }
     });
 
-  $('.createChat').on('submit', function(e){
-    console.log()
-
-  })
 
     function updateScroll(){
       $(".msg").animate({ scrollTop: $(this).height() }, "fast");

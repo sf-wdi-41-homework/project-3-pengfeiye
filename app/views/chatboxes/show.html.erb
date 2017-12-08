@@ -21,9 +21,21 @@
   <br>
   <div class="row">
     <div class="msg" chatbox-id="<%=@chatbox.id%>">
-      <% @chatbox.messages.order(created_at: :desc).limit(200).reverse.each do |message| %>
-      <%=render message%>
+      <% @created_ats.keys.each do |key| %>
+        <%if key == Time.now .strftime("%Y %B %e")%>
+          <h4 class="text-center">Today</h4>
+          <hr>
+        <%else%>
+          <h4 class="text-center"><%=key%></h4>
+          <hr>
+        <%end%>
+        <% @chatbox.messages.order(created_at: :desc).limit(200).reverse.each do |message| %>
+          <% if message.created_at.localtime.strftime("%Y %B %e") == key%>
+            <%=render message%>
+          <%end%>
+        <%end%>
       <%end%>
+
     </div>
 
     <%= form_with scope: :message, url: chatbox_messages_path(@chatbox.id), id:"msgForm", remote: true do |form| %>

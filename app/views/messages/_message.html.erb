@@ -1,3 +1,5 @@
-<div >
-  <%=message.user.username%> : <%=message.content%>
+<div class="singlemsg">
+  <strong><%=message.user.username.capitalize%></strong> <%=message.created_at.localtime.strftime("%l:%M %p")%>
+  <br>
+    <%=message.content%>
 </div>
