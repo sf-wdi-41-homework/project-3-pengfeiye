@@ -12,6 +12,7 @@ class ChatboxChannel < ApplicationCable::Channel
   end
 
   def send_message(data)
+    stream_from "chatboxes:#{data['chatbox_id']}"
     @chatbox = Chatbox.find(data['chatbox_id'])
     message = @chatbox.messages.create(content: data['content'], user: current_user)
     MessageRelayJob.perform_later(message)

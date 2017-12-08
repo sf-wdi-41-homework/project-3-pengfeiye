@@ -16,11 +16,9 @@ class ChatboxesController < ApplicationController
     @chatbox = Chatbox.new(chatbox_params)
 
     if @user == nil && @chatbox.save && current_user.chatboxes << @chatbox
-      flash[:success] = "#{@chatbox.name} chatbox was just created"
       redirect_to chatbox_path(@chatbox.id)
     elsif @chatbox.save && current_user.chatboxes << @chatbox && @user.chatboxes << @chatbox
-      flash[:success] = "#{@chatbox.name} chatbox was just created"
-      redirect_to chatboxes_path
+      redirect_to chatbox_path(@chatbox.id)
     else
       flash[:error] = "Chatbox creation failed, please try again"
       redirect_to new_chatbox_path

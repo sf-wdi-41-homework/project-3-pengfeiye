@@ -1,5 +1,12 @@
 $(document).on('turbolinks:load',function(){
+  setTimeout(function(){
+           App.cable.disconnect();
+       }, 250);
+   setTimeout(function(){
+       App.cable.connect();
+   }, 500);
   updateScroll()
+  console.log()
 
   $('#msgInput').on('keypress', function(e){
     if(e.keyCode === 13){
@@ -11,8 +18,8 @@ $(document).on('turbolinks:load',function(){
     });
 
   $('.createChat').on('submit', function(e){
-    console.log("submit")
-    App.chatbox.connected
+    console.log()
+
   })
 
     function updateScroll(){
