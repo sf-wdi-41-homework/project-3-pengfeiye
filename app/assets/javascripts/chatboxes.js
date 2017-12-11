@@ -19,17 +19,20 @@ $(document).on('turbolinks:load',function(){
     });
 
 
-    function updateScroll(){
-      $(".msg").animate({ scrollTop: $(".msg")[0].scrollHeight }, "fast");
-    }
+  function updateScroll(){
+    $(".msg").animate({ scrollTop: $(".msg")[0].scrollHeight }, "fast");
+  }
 
-    $(".signup_link").click(function(e) {
-      e.preventDefault()
-    	$(".signin_form").hide();
-    	$(".signup_form").show();
-    });
+  $(".signup_link").click(function(e) {
+    e.preventDefault()
+  	$(".signin_form").hide();
+  	$(".signup_form").show();
+  });
 
-
+  $("#mySearch").on('change', function(){
+    let mySearch = $("#mySearch").val()
+    $("#searchNow").attr("href").replace("",`/searches/${mySearch}`)
+  })
 
   }
 )

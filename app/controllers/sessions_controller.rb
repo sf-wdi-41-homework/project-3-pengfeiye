@@ -10,8 +10,6 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(login_params[:password])
       login(@user)
       flash[:success] = "Successfully logged in."
-      puts (@current_user.username)     # <--- Add this flash notice
-      # redirect_to show_user_path(@user[:id])
       redirect_to root_path
     else
       flash[:error] = "Invalid username or password"      # <--- Add this flash notice
