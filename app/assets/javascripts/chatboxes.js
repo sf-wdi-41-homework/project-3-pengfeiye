@@ -29,10 +29,5 @@ $(document).on('turbolinks:load',function(){
   	$(".signup_form").show();
   });
 
-  $("#mySearch").on('change', function(){
-    let mySearch = $("#mySearch").val()
-    $("#searchNow").attr("href").replace("",`/searches/${mySearch}`)
-  })
-
   }
 )
