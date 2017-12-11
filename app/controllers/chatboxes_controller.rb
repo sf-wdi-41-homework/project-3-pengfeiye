@@ -15,8 +15,24 @@ class ChatboxesController < ApplicationController
     @user = User.find_by_username(params[:chatboxes][:username])
     @chatbox = Chatbox.new(chatbox_params)
 
+
+    Chatbox.all.each do |chat|
+      two_chats = chat.users.length == 2
+      has_current_user = chat.users.include?(current_user)
+      has_searched_user = chat.users.include?(@user)
+
+      current_user_private_chat = two_chats && has_current_user
+
+      chat_with_current_searched = current_user_private_chat && has_searched_user
+      if chat_with_current_searched
+        @alreadyexist = chat
+      end
+    end
+
     if @user == nil && @chatbox.save && current_user.chatboxes << @chatbox
       redirect_to chatbox_path(@chatbox.id)
+    elsif @alreadyexist
+      redirect_to chatbox_path(@alreadyexist.id)
     elsif @chatbox.save && current_user.chatboxes << @chatbox && @user.chatboxes << @chatbox
       redirect_to chatbox_path(@chatbox.id)
     else

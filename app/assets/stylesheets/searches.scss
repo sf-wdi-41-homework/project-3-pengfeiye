@@ -19,3 +19,24 @@
   color: white;
   border: 2px solid white;
 }
+
+.hide{
+  display: none;
+}
+
+.searchedUser{
+  display: block;
+}
+
+.searchedUser:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.addUserBtn{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.inPageSearchBar{
+  width: 100%;
+}

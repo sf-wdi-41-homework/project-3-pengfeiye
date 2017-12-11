@@ -14,8 +14,11 @@ App.chatbox = App.cable.subscriptions.create "ChatboxChannel",
       if active_chat.length > 0
         if $(".msg").attr("data-user-id") != data.current_user.toString()
           $("[chatbox-id='#{data.chatbox_id}']").append(data.message)
+          $('#msgInput').val('')
         else
           $("[chatbox-id='#{data.chatbox_id}']").append('<div class="text-right">'+data.message.replace("alert-info", "alert-success")+'</div>')
+          $('#msgInput').val('')
+
 
       else
         # $ -> $('body').append('<audio controls id="notification" autoplay hidden><source src="/job-done.mp3" type="audio/mpeg"></audio>');

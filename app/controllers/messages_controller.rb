@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
 
   def create
     message = @chatbox.messages.new(message_params)
+    puts("#{message_params} AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     message.user = current_user
     message.save
     MessageRelayJob.perform_later(message)
