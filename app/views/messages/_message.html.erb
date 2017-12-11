@@ -1,5 +1,18 @@
-<div class="singlemsg">
-  <strong><%=message.user.username.capitalize%></strong> <%=message.created_at.localtime.strftime("%l:%M %p")%>
-  <br>
-    <%=message.content%>
+<%if current_user == message.user%>
+<div class="text-right">
+  <div class="singlemsg ">
+      <strong class="username"><%=message.user.username.capitalize%></strong>
+      <div class="time"><%=message.created_at.localtime.strftime("%l:%M %p")%></div>
+      <div class="alert alert-success txtMsg"><%=message.content%></div>
+  </div>
 </div>
+<%else%>
+<div>
+<div class="singlemsg">
+    <strong class="username"><%=message.user.username.capitalize%></strong>
+    <div class="time"><%=message.created_at.localtime.strftime("%l:%M %p")%></div>
+    <div class="alert alert-info txtMsg"><%=message.content%></div>
+</div>
+</div>
+
+<%end%>

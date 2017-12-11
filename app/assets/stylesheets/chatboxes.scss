@@ -92,3 +92,23 @@ span.collapse.in.hidden-xs {
   background-color: rgba(0,0,0,.3);
   border-radius: 30px;
 }
+
+.singlemsg{
+margin-top: .5vh;
+word-wrap: break-word;
+}
+
+.txtMsg{
+  display: inline-block;
+  max-width: 40%;
+  font-size: 1em;
+}
+
+.name{
+  font-size: 1.1em;
+}
+
+.time{
+  font-style: italic;
+  font-size: .8em
+}

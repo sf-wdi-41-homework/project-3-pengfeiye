@@ -26,8 +26,7 @@ class ChatboxesController < ApplicationController
   end
 
   def show
-    @created_ats = @chatbox.messages.group_by { |c| c.created_at.localtime.strftime("%Y %B %e") }
-    puts ("TEST!!! #{@created_ats.keys}")
+    @created_ats = @chatbox.messages.group_by { |c| c.created_at.localtime.strftime("%B %e %Y") }
     if !current_user.chatboxes.include?@chatbox
       redirect_to chatboxes_path
     end

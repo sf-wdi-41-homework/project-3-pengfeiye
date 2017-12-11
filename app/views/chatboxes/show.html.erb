@@ -20,9 +20,9 @@
   </div>
   <br>
   <div class="row">
-    <div class="msg" chatbox-id="<%=@chatbox.id%>">
+    <div class="msg" chatbox-id="<%=@chatbox.id%>" data-user-id="<%=current_user.id%>">
       <% @created_ats.keys.each do |key| %>
-        <%if key == Time.now .strftime("%Y %B %e")%>
+        <%if key == Time.now.strftime("%B %e %Y")%>
           <h4 class="text-center">Today</h4>
           <hr>
         <%else%>
@@ -30,19 +30,18 @@
           <hr>
         <%end%>
         <% @chatbox.messages.order(created_at: :desc).limit(200).reverse.each do |message| %>
-          <% if message.created_at.localtime.strftime("%Y %B %e") == key%>
+          <% if message.created_at.localtime.strftime("%B %e %Y") == key%>
             <%=render message%>
           <%end%>
         <%end%>
       <%end%>
-
     </div>
 
-    <%= form_with scope: :message, url: chatbox_messages_path(@chatbox.id), id:"msgForm", remote: true do |form| %>
-    <div class="form-group">
-      <%= form.text_field(:content, class: 'form-control', autofocus: true, id:"msgInput") %>
-    </div>
-    <%end%>
+      <%= form_with scope: :message, url: chatbox_messages_path(@chatbox.id), id:"msgForm", remote: true do |form| %>
+      <div class="form-group">
+        <%= form.text_field(:content, class: 'form-control', autofocus: true, id:"msgInput") %>
+      </div>
+      <%end%>
   </div>
 
 </div>

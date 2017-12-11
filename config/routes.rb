@@ -19,6 +19,10 @@ Rails.application.routes.draw do
       resources :messages
     end
 
+  # Searches
+    post '/searches', to: 'searches#create', as:"search"
+    get '/searches/:params', to: 'searches#show', as:"search_result"
+
     mount ActionCable.server => '/cable'
 
 end

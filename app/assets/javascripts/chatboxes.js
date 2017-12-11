@@ -20,8 +20,7 @@ $(document).on('turbolinks:load',function(){
 
 
     function updateScroll(){
-      $(".msg").animate({ scrollTop: $(this).height() }, "fast");
-      return false;
+      $(".msg").animate({ scrollTop: $(".msg")[0].scrollHeight }, "fast");
     }
 
     $(".signup_link").click(function(e) {
