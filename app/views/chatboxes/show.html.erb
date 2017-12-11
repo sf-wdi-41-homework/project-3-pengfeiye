@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid chatboxPage">
   <div class="row" id="chatboxHead">
     <h3>
       <div class="col-sm-11">
@@ -43,5 +43,25 @@
       </div>
       <%end%>
   </div>
-
 </div>
+
+
+  <script>
+  $(document).on('turbolinks:load',function(){
+    updateScroll()
+    console.log("test")
+    $('#msgInput').on('keypress', function(e){
+      if(e.keyCode === 13){
+        e.preventDefault()
+        $('#msgForm').submit()
+        $('#msgInput').val('')
+        updateScroll()
+        }
+      });
+
+
+    function updateScroll(){
+      $(".msg").animate({ scrollTop: $(".msg")[0].scrollHeight }, "fast");
+      }
+  })
+  </script>
