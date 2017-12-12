@@ -14,6 +14,7 @@ class ChatboxesController < ApplicationController
   def create
     @user = User.find_by_username(params[:chatboxes][:username])
     @chatbox = Chatbox.new(chatbox_params)
+    @chatbox.owner_id = current_user.id
 
 
     Chatbox.all.each do |chat|
@@ -56,6 +57,11 @@ class ChatboxesController < ApplicationController
       end
     end
 
+    @pendingUser = []
+    @chatbox.pending.each do |id|
+      @pendingUser << User.find(id)
+    end
+
   end
 
   def update
@@ -79,7 +85,27 @@ class ChatboxesController < ApplicationController
       flash[:success] ="You have left #{@chatbox.name} TXTChat :("
       redirect_to chatboxes_path
     end
+  end
 
+  def addgroup
+    @chatbox = Chatbox.find(params[:id])
+    @chatbox.pending << current_user.id
+    if @chatbox.save
+      flash[:success] = "Your application to join #{@chatbox.name} has been sent!"
+      redirect_to chatboxes_path
+    end
+  end
+
+  def approve
+    @approveUser = User.find(params[:id])
+    @chatbox = Chatbox.find(params[:group])
+
+    if @chatbox.users << @approveUser
+      @chatbox.pending.delete(@approveUser.id)
+      @chatbox.save
+      flash[:success] ="#{@approveUser.username.capitalize} has joined #{@chatbox.name} TXTChat group"
+      redirect_to edit_chatbox_path(@chatbox.id)
+    end
   end
 
   private

@@ -6,10 +6,20 @@ class SearchesController < ApplicationController
     redirect_to search_result_path(search_params[:search])
   end
   def show
-    @search = []
+    @searchUser = []
+    @searchGroup = []
     User.all.each do |user|
       if user.username.include? params[:search]
-        @search << user
+        @searchUser << user
+      end
+    end
+    Chatbox.all.each do |chat|
+      if chat.chatType == "GroupTxt"
+        if chat.name.include? params[:search]
+          if !chat.users.include? current_user
+            @searchGroup << chat
+          end
+        end
       end
     end
   end

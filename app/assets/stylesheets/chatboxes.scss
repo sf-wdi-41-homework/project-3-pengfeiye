@@ -69,6 +69,7 @@ ul.nav li.list-inline-item:hover{
     padding-left: 0;
     float: left;
     min-height: 100%;
+
 }
 
 .wrapper, .row {
@@ -90,7 +91,8 @@ span.collapse.in.hidden-xs {
 }
 
 #menu{
-  margin: 5%;
+  margin-top: 3vh;
+  margin-left: 1vh;
   font-size: 100%;
 }
 
@@ -146,4 +148,19 @@ margin-right: 2vw;
   height: 100%;
   color: white;
   border-radius: 20px;
+}
+
+hr{
+  color: white
+}
+
+option, select{
+  color:black
+}
+
+.edit_scroll {
+  overflow-y: auto;
+  height: 50vh;
+  margin-top: 1%;
+  display: inline-block;
 }

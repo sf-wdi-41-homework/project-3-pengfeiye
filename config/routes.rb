@@ -19,6 +19,9 @@ Rails.application.routes.draw do
       resources :messages
     end
 
+    get '/addgroup/:id', to: 'chatboxes#addgroup', as:'chatbox_pending'
+    get '/approve/:id/chatbox/:group', to: 'chatboxes#approve', as: 'approve_group'
+
   # Searches
     post '/searches', to: 'searches#create', as:"search"
     get '/searches/:search', to: 'searches#show', as:"search_result"

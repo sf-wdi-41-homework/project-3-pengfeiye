@@ -40,3 +40,28 @@
 .inPageSearchBar{
   width: 100%;
 }
+
+.search{
+  overflow-y: auto;
+  height: 80vh;
+}
+
+.searchIndex, .overall{
+  background: url('/searchIndex.jpeg');
+  background-size: cover;
+  min-height: 100%;
+  max-height: 100%;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  color: white;
+  border-radius: 20px;
+}
+
+#searchBackdrop, .backdrop{
+  background-color: rgba(0, 0, 0, 0.4);
+  height:97%;
+  color: white;
+  border-radius: 20px;
+  padding: 0;
+}

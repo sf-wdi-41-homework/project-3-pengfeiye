@@ -1,4 +1,6 @@
-<div class="container-fluid searchResult text-center">
+<div class="container searchIndex text-center">
+  <section id="searchBackdrop">
+    <br>
   <%= form_with url: search_path, class: " form-inline", id:"searchForm" do |form| %>
       <div class="form-group">
           <%= form.text_field(:search, class: 'form-control', id:"inPageSearchBar", placeholder: "Search your friends here") %>
@@ -8,11 +10,13 @@
       </div>
   <% end %>
 
-  <div class="msg col-sm-8 col-sm-offset-2">
-    <%if @search == []%>
+  <div class="search col-sm-6">
+    <h2>Users</h2>
+    <hr>
+    <%if @searchUser == []%>
       <h3>We are sorry, there is no related user</h3>
     <%end%>
-    <%@search.each do |user|%>
+    <%@searchUser.each do |user|%>
       <%if current_user != user%>
         <%= form_with scope: :chatboxes, url: chatboxes_path, class: "form-horizontal searchedUser", remote: true do |form| %>
         <%= form.text_field(:name, class: 'form-control hide', value:"#{user.username} && #{current_user.username}") %>
@@ -24,4 +28,18 @@
     <br>
     <%end%>
   </div>
+  <div class="search col-sm-6">
+    <h2>TXTChat Groups</h2>
+    <hr>
+    <%if @searchGroup == []%>
+      <h3>We are sorry, there is no related Group</h3>
+    <%end%>
+    <%@searchGroup.each do |chat|%>
+        <%=link_to chatbox_pending_path(chat.id) do%>
+          <h3><%=chat.name%></h3>
+        <%end%>
+    <%end%>
+    <br>
+  </div>
+</section>
 </div>

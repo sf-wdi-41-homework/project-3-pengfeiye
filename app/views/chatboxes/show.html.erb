@@ -3,10 +3,10 @@
     <h3>
       <div class="col-sm-11">
         <%=@chatbox.name%>
-      <% if @chatbox.id != 25 %>
+      <% if @chatbox.owner_id == current_user.id%>
         <%=link_to edit_chatbox_path(@chatbox.id) do%>
         <span class="glyphicon glyphicon-pencil"></span>
-        <%end%>
+      <%end%>
       </div>
       <div class="col-sm-1">
         <%=link_to chatbox_path(@chatbox.id), method: :delete do%>
