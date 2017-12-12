@@ -63,7 +63,7 @@ class ChatboxesController < ApplicationController
     if @user == nil && @chatbox.update(chatbox_params)
       redirect_to @chatbox
     elsif @chatbox.update(chatbox_params) && @user.chatboxes << @chatbox
-      redirect_to chatboxes_path
+      redirect_to @chatbox
     else
       redirect_to new_chatbox_path
     end
@@ -84,7 +84,7 @@ class ChatboxesController < ApplicationController
 
   private
   def chatbox_params
-    params.require(:chatboxes).permit(:name)
+    params.require(:chatboxes).permit(:name, :chatType)
   end
 
   def chatbox

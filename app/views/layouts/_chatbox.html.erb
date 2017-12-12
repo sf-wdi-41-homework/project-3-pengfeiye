@@ -25,9 +25,11 @@
                     <a href="#" data-target="#item1" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Group TXTChat <span class="caret"></span></span></a>
                     <ul class="nav nav-stacked collapse left-submenu" id="item1">
                       <%current_user.chatboxes.sort_by { |chatbox| chatbox[:name] } .each do |chatbox|%>
-                        <%if chatbox.users.length > 2 && chatbox.id != 25%>
+                        <%if chatbox.chatType == "GroupTxt"%>
                         <li >
-                          <%=link_to chatbox.name, chatbox_path(chatbox.id), class:"nav-link", data: {chat_id: chatbox.id}%>
+                          <%=link_to chatbox_path(chatbox.id), class:"nav-link", data: {chat_id: chatbox.id} do%>
+                            <span><%=chatbox.name%></span> | <span class="time">Active User: <%=chatbox.users.length%></span>
+                          <%end%>
                         </li>
                         <%end%>
                       <%end%>
@@ -37,7 +39,7 @@
                     <a href="#" data-target="#item2" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Private TXTChat<span class="caret"></span></span></a>
                     <ul class="nav nav-stacked collapse" id="item2">
                       <%current_user.chatboxes.sort_by { |chatbox| chatbox[:name] } .each do |chatbox|%>
-                        <%if chatbox.users.length === 2%>
+                        <%if chatbox.chatType == "PrivateTxt"%>
                         <li >
                           <%=link_to chatbox.name, chatbox_path(chatbox.id), class:"nav-link", data: {chat_id: chatbox.id}%>
                         </li>

@@ -1,1 +1,12 @@
-<h1>Announcement Page </h1>
+<div class="container-fluid chatIndex">
+  <div id="indexbackdrop" class="col-sm-8 col-sm-offset-2 text-center">
+  <%if current_user.messages.length == 0%>
+    <h1><%=current_user.username.capitalize%> Welcome!</h1>
+    <h4>To get you started, you can use the navbar on the left to search for your friends to start TXTChatting! Or you can use the add button to create your first TXTChat Group and Talk with multiple friends at the same time!</h4>
+  <%else%>
+    <h1>Announcement Page </h1>
+    <h3>This is where all future app announcement will be place</h3>
+    <h4>Updates | Maintaince | Others</h4>
+  <%end%>
+  </div>
+</div>

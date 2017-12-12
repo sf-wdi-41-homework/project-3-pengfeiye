@@ -11,6 +11,9 @@
 		<%= form.label :username, "Invite Users:" %>
 		<%= form.select :username, @allusers %>
 </div>
+<div class="hide">
+		<%= form.text_field(:chatType, class: 'form-control', value:"GroupTxt") %>
+</div>
 <div class="form-group">
 		<%= form.submit('Submit', class: 'btn-sm btn-primary') %>
 </div>

@@ -17,6 +17,7 @@
         <%= form_with scope: :chatboxes, url: chatboxes_path, class: "form-horizontal searchedUser", remote: true do |form| %>
         <%= form.text_field(:name, class: 'form-control hide', value:"#{user.username} && #{current_user.username}") %>
         <%= form.text_field :username, class:"hide", value:"#{user.username}" %>
+        <%= form.text_field(:chatType, class: 'hide', value:"PrivateTxt") %>
         <button class="btn btn-sm addUserBtn" type:'submit'><h3><%=user.username%></h3></button>
       <%end%>
     <%end%>

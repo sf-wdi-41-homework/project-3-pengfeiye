@@ -10,6 +10,14 @@ body {
 .msg {
   overflow-y: auto;
   height: 80vh;
+  margin-top: 1%;
+  display: inline-block;
+  width: 100%;
+  background: url('/chatboxPage.jpeg');
+  background-size: cover;
+  color: white;
+  background-repeat: no-repeat;
+  border-radius: 20px
 }
 
 .alert{
@@ -21,7 +29,7 @@ body {
 }
 
 #backdrop{
-  background: url('/homeback.jpg');
+  background: url('/background.jpeg');
   background-size: cover;
   height: 100%;
   width: 100%;
@@ -73,6 +81,8 @@ ul.nav li.list-inline-item:hover{
 
 #messages{
   min-height: 100%;
+  height: 100%;
+
 }
 
 span.collapse.in.hidden-xs {
@@ -94,8 +104,10 @@ span.collapse.in.hidden-xs {
 }
 
 .singlemsg{
-margin-top: .5vh;
+margin-top: 1vh;
 word-wrap: break-word;
+margin-left: 2vw;
+margin-right: 2vw;
 }
 
 .txtMsg{
@@ -111,4 +123,27 @@ word-wrap: break-word;
 .time{
   font-style: italic;
   font-size: .8em
+}
+
+.chatIndex{
+  margin-top: 1%;
+  display: inline-block;
+  width: 100%;
+  height: 97%;
+  background: url('/indexback.jpeg');
+  background-size: cover;
+  color: white;
+  background-repeat: no-repeat;
+  border-radius: 20px
+}
+
+.chatboxPage{
+
+}
+
+#indexbackdrop{
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  color: white;
+  border-radius: 20px;
 }
