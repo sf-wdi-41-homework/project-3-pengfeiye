@@ -18,10 +18,14 @@ Project TXTChat
 
 Technologies
 -------------------------------------------------
-  *JQuery
-  *Ruby on Rails
-  *Web Socket(Action Cable)
-  *CSS / Bootstrap
-  *Postgresql
-  *ERB templating
-  *Bcrypt (Authentication)
+* JQuery
+* Ruby on Rails
+* Web Socket(Action Cable)
+* CSS / Bootstrap
+* Postgresql
+* ERB templating
+* Bcrypt (Authentication)
+
+Summary
+-------------------------------------------------
+A week long project based on Ruby on Rails framework and Action Cable web socket to provided users real time messaging communication.

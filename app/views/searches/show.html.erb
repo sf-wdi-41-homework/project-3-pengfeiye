@@ -35,9 +35,15 @@
       <h3>We are sorry, there is no related Group</h3>
     <%end%>
     <%@searchGroup.each do |chat|%>
-        <%=link_to chatbox_pending_path(chat.id) do%>
-          <h3><%=chat.name%></h3>
-        <%end%>
+    <h3>
+      <%=chat.name%>
+      <span>
+      <%=link_to chatbox_pending_path(chat.id) do%>
+        <i class="fa fa-group"></i>
+      <%end%>
+      </span>
+    </h3>
+
     <%end%>
     <br>
   </div>

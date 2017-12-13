@@ -36,8 +36,13 @@
 	<h2>Pending Members</h2>
 	<div class="edit_scroll">
 		<%@pendingUser.each do |user|%>
-			<h3><%=user.username%></h3>
-			<%=link_to "Approve", approve_group_path(id:user.id, group:@chatbox.id)%>
+			<h3>
+				<%=user.username%>
+				<%=link_to approve_group_path(id:user.id, group:@chatbox.id) do%>
+				<i class="fa fa-check"></i>
+				<%end%>
+			</h3>
+
 		<%end%>
 	</div>
 </div>
