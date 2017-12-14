@@ -13,11 +13,11 @@ body {
   margin-top: 1%;
   display: inline-block;
   width: 100%;
-  background: url('/chatboxPage.jpeg');
-  background-size: cover;
-  color: white;
-  background-repeat: no-repeat;
-  border-radius: 20px
+  // background: url('/chatboxPage.jpeg');
+  // background-size: cover;
+  // color: white;
+  // background-repeat: no-repeat;
+  // border-radius: 20px
 }
 
 .alert{
@@ -91,6 +91,7 @@ span.collapse.in.hidden-xs {
 }
 
 #menu{
+  padding-top: 1vh;
   margin-top: 3vh;
   margin-left: 1vh;
   font-size: 100%;

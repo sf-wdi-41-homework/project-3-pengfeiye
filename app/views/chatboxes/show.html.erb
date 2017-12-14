@@ -6,8 +6,9 @@
       <% if @chatbox.owner_id == current_user.id%>
         <%=link_to edit_chatbox_path(@chatbox.id) do%>
         <span class="glyphicon glyphicon-pencil"></span>
-      <%end%>
+        <%end%>
       </div>
+      <%end%>
       <div class="col-sm-1">
         <%=link_to chatbox_path(@chatbox.id), method: :delete do%>
         <span>
@@ -15,7 +16,6 @@
         </span>
         <%end%>
       </div>
-      <%end%>
     </h3>
   </div>
   <br>
