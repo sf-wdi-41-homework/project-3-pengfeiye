@@ -9,13 +9,13 @@ class SearchesController < ApplicationController
     @searchUser = []
     @searchGroup = []
     User.all.each do |user|
-      if user.username.include? params[:search]
+      if user.username.downcase.include? params[:search].downcase
         @searchUser << user
       end
     end
     Chatbox.all.each do |chat|
       if chat.chatType == "GroupTxt"
-        if chat.name.include? params[:search]
+        if chat.name.downcase.include? params[:search].downcase
           if !chat.users.include? current_user
             @searchGroup << chat
           end
